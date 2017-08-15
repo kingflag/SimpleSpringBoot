@@ -8,16 +8,12 @@
 
 springboot集成Mybatis，在配置文件中配置数据库连接信息，创建表并添加数据
 <code>
-	CREATE TABLE `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) COLLATE utf8_bin DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ----------------------------
--- Records of user
--- ----------------------------
 INSERT INTO `user` VALUES ('1', 'king', '12');
 INSERT INTO `user` VALUES ('2', 'flag', '45');
 </code>
