@@ -3,11 +3,11 @@ package hello.controller.impl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import hello.controller.ITestController;
+import hello.controller.IUserController;
 
 @RestController
-@RequestMapping("/testController")
-public class TestControllerImpl implements ITestController {
+@RequestMapping("/user")
+public class UserControllerImpl implements IUserController {
 
 	
 	@Override

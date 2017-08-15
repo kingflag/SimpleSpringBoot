@@ -1,6 +1,6 @@
 package hello.controller;
 
-public interface ITestController {
+public interface IUserController {
 	
 	public String add();
 	
