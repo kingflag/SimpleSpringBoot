@@ -22,4 +22,8 @@ INSERT INTO `user` VALUES ('2', 'flag', '45');
 
 
 在浏览器中输入<code>http://localhost:8081/user/queryall</code>
-当看到类似于<code>queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]</code>此时证明Mybatis集成成功，可以对数据库进行操作。
+当看到类似于
+```javascript
+queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
+```
+此时证明Mybatis集成成功，可以对数据库进行操作。
