@@ -39,4 +39,10 @@ public class UserServiceImpl implements IUserService {
 		return null;
 	}
 
+	@Override
+	public Boolean addsome() {
+		Boolean result = userDao.addsome();
+		return result;
+	}
+
 }

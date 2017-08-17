@@ -1,11 +1,32 @@
 package hello.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
 	private Long id;
 	private String name;
 	private Integer age;
 
+	
+
+	public User() {
+		super();
+	}
+
+	public User(Long id, String name, Integer age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -14,6 +35,7 @@ public class User {
 		this.id = id;
 	}
 
+	@Column(nullable = false)
 	public String getName() {
 		return name;
 	}
@@ -22,6 +44,7 @@ public class User {
 		this.name = name;
 	}
 
+	@Column(nullable = false)
 	public Integer getAge() {
 		return age;
 	}

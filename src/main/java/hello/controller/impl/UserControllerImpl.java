@@ -46,4 +46,11 @@ public class UserControllerImpl implements IUserController {
 		return "change";
 	}
 
+	@Override
+	@RequestMapping("/addsome")
+	public Boolean addsome() {
+		Boolean result = userServiceImpl.addsome();
+		return result;
+	}
+
 }

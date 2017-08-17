@@ -13,5 +13,7 @@ public interface IUserService {
 	public String delete();
 
 	public String change();
+	
+	public Boolean addsome();
 
 }

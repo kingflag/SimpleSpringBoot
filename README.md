@@ -8,7 +8,28 @@
 
 springboot集成Mybatis，在配置文件中配置数据库连接信息，创建表并添加数据
 
+添加Mybatis依赖和数据库依赖
 
+```javascript
+<!-- Springboot集成Mybatis依赖 -->
+<dependency>
+		<groupId>org.mybatis.spring.boot</groupId>
+		<artifactId>mybatis-spring-boot-starter</artifactId>
+		<version>1.1.1</version>
+</dependency>
+<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<!-- Mysql驱动 -->
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.21</version>
+</dependency>
+```
+
+创建数据表
 ```javascript
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -27,3 +48,15 @@ INSERT INTO `user` VALUES ('2', 'flag', '45');
 queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 ```
 此时证明Mybatis集成成功，可以对数据库进行操作。
+
+集成Spring-Data-JPA
+
+添加依赖
+```javascript
+<!-- spring-data-jpa依赖 -->
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+在浏览器中输入<code>http://localhost:8081/user/addsome</code>在页面看到<code>true</code>然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
