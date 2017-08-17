@@ -17,10 +17,7 @@ springboot集成Mybatis，在配置文件中配置数据库连接信息，创建
 		<artifactId>mybatis-spring-boot-starter</artifactId>
 		<version>1.1.1</version>
 </dependency>
-<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-web</artifactId>
-</dependency>
+
 <!-- Mysql驱动 -->
 <dependency>
 	<groupId>mysql</groupId>
@@ -60,3 +57,56 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 </dependency>
 ```
 在浏览器中输入<code>http://localhost:8081/user/addsome</code>在页面看到<code>true</code>然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
+
+使用Gson将返回结果封装成json
+
+添加Gson依赖，并排除jackson依赖（通常情况）
+```javascript
+<!-- 加入gson依赖 -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+</dependency>
+
+<!-- 排除jackson依赖 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
+
+在浏览器中输入<code>http://localhost:8081/user/queryall</code>可以看到json数据，如下
+```javascript
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "king",
+            "age": 12
+        },
+        {
+            "id": 2,
+            "name": "flag",
+            "age": 45
+        },
+        {
+            "id": 33,
+            "name": "laodi",
+            "age": 10
+        },
+        {
+            "id": 34,
+            "name": "laodi",
+            "age": 10
+        }
+    ],
+    "state": "200"
+}
+```
+其中state为200表示请求成功，其他为失败，data是返回的数据；
