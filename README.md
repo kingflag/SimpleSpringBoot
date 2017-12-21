@@ -31,7 +31,7 @@ springboot集成Mybatis，在配置文件中配置数据库连接信息，创建
 
 添加Mybatis依赖和数据库依赖
 
-```javascript
+```java
 <!-- Springboot集成Mybatis依赖 -->
 <dependency>
 		<groupId>org.mybatis.spring.boot</groupId>
@@ -48,7 +48,7 @@ springboot集成Mybatis，在配置文件中配置数据库连接信息，创建
 ```
 
 创建数据表
-```javascript
+```sql
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) COLLATE utf8_bin DEFAULT NULL,
@@ -62,7 +62,7 @@ INSERT INTO `user` VALUES ('2', 'flag', '45');
 
 在浏览器中输入<code>http://localhost:8081/user/queryall</code>
 当看到类似于
-```javascript
+```
 queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 ```
 此时证明Mybatis集成成功，可以对数据库进行操作。
@@ -70,19 +70,19 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 集成Spring-Data-JPA
 
 添加依赖
-```javascript
+```xml
 <!-- spring-data-jpa依赖 -->
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 ```
-在浏览器中输入<code>http://localhost:8081/user/addsome</code>在页面看到<code>true</code>然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
+在浏览器中输入```http://localhost:8081/user/addsome```在页面看到```true```然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
 
 使用Gson将返回结果封装成json
 
 添加Gson依赖，并排除jackson依赖（通常情况）
-```javascript
+```xml
 <!-- 加入gson依赖 -->
 <dependency>
     <groupId>com.google.code.gson</groupId>
@@ -102,8 +102,8 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 </dependency>
 ```
 
-在浏览器中输入<code>http://localhost:8081/user/queryall</code>可以看到json数据，如下
-```javascript
+在浏览器中输入```http://localhost:8081/user/queryall```可以看到json数据，如下
+```json
 {
     "data": [
         {
