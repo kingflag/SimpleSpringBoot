@@ -2,36 +2,9 @@
 
 添加pom.xml。
 
-编写启动代码，在浏览器中输入
-```
-http://localhost:8081/
-```
-即可看到
-```Hello World!```
-此时即可证明springboot的程序已经启动，如果想更换端口请到
-```src/main/resources/application.properties```中修改。
-
-添加相应的控制器后，用POSTMAN等Http请求工具POST请求
-```
-http://localhost:8081/user/add
-```
-</code>
-在Body中添加json
-
-```
-{
-   	"id":"12",
-   	"name":"kkk",
-   	"age":10
-}
-```
-可以在浏览器中看到```参数不可为空```或者```name的值```字符串
-
-springboot集成Mybatis，在配置文件中配置数据库连接信息，创建表并添加数据
-
 添加Mybatis依赖和数据库依赖
 
-```java
+```xml
 <!-- Springboot集成Mybatis依赖 -->
 <dependency>
 		<groupId>org.mybatis.spring.boot</groupId>
@@ -46,6 +19,9 @@ springboot集成Mybatis，在配置文件中配置数据库连接信息，创建
 	<version>5.1.21</version>
 </dependency>
 ```
+springboot集成Mybatis，在配置文件中配置数据库连接信息，创建表并添加数据
+
+
 
 创建数据表
 ```sql
@@ -58,15 +34,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', 'king', '12');
 INSERT INTO `user` VALUES ('2', 'flag', '45');
 ```
-
-
-在浏览器中输入<code>http://localhost:8081/user/queryall</code>
-当看到类似于
-```
-queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
-```
-此时证明Mybatis集成成功，可以对数据库进行操作。
-
 集成Spring-Data-JPA
 
 添加依赖
@@ -77,8 +44,6 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 ```
-在浏览器中输入```http://localhost:8081/user/addsome```在页面看到```true```然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
-
 使用Gson将返回结果封装成json
 
 添加Gson依赖，并排除jackson依赖（通常情况）
@@ -101,6 +66,38 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
     </exclusions>
 </dependency>
 ```
+
+编写启动代码，在浏览器中输入
+```
+http://localhost:8081/
+```
+即可看到
+```Hello World!```
+此时即可证明springboot的程序已经启动，如果想更换端口请到
+```src/main/resources/application.properties```中修改。
+
+添加相应的控制器后，用POSTMAN等Http请求工具POST请求
+```
+http://localhost:8081/user/add
+```
+在Body中添加json
+```
+{
+   	"id":"12",
+   	"name":"kkk",
+   	"age":10
+}
+```
+可以在浏览器中看到```参数不可为空```或者```name的值```字符串
+
+在浏览器中输入<code>http://localhost:8081/user/queryall</code>
+当看到类似于
+```
+queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
+```
+此时证明Mybatis集成成功，可以对数据库进行操作。
+
+在浏览器中输入```http://localhost:8081/user/addsome```在页面看到```true```然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
 
 在浏览器中输入```http://localhost:8081/user/queryall```可以看到json数据，如下
 ```json
