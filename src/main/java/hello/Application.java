@@ -13,7 +13,7 @@ public class Application {
 
 	@RequestMapping("/")
 	@ResponseBody
-	public String home() {
+	public String index() {
 		return "Hello World!";
 	}
 
