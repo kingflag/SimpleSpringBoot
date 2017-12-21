@@ -2,9 +2,30 @@
 
 添加pom.xml。
 
-编写启动代码，在浏览器中输入<code>http://localhost:8081/</code>即可看到<code>Hello World!</code>;此时即可证明springboot的程序已经启动，如果想更换端口请到<code>src/main/resources/application.properties</code>中修改。
+编写启动代码，在浏览器中输入
+```
+http://localhost:8081/
+```
+即可看到
+```Hello World!```
+此时即可证明springboot的程序已经启动，如果想更换端口请到
+```src/main/resources/application.properties```中修改。
 
-添加相应的控制器后，在浏览器中输入<code>http://localhost:8081/user/add</code>可以在浏览器中看到<code>add</code>字符串
+添加相应的控制器后，用POSTMAN等Http请求工具POST请求
+```
+http://localhost:8081/user/add
+```
+</code>
+在Body中添加json
+
+```
+{
+   	"id":"12",
+   	"name":"kkk",
+   	"age":10
+}
+```
+可以在浏览器中看到```参数不可为空```或者```name的值```字符串
 
 springboot集成Mybatis，在配置文件中配置数据库连接信息，创建表并添加数据
 

@@ -1,19 +1,19 @@
 package hello.controller.impl;
 
+import com.google.gson.Gson;
+import hello.controller.IUserController;
+import hello.domain.User;
+import hello.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.google.gson.Gson;
-
-import hello.controller.IUserController;
-import hello.domain.User;
-import hello.service.IUserService;
 
 @RestController
 @RequestMapping("/user")
@@ -22,11 +22,21 @@ public class UserControllerImpl implements IUserController {
 	@Autowired
 	IUserService userServiceImpl;
 
+	/**
+	 * 添加成员
+	 * @param user
+	 * @return
+	 */
 	@Override
-	@RequestMapping("/add")
-	public String add() {
-
-		return "add";
+	@RequestMapping(value = "/add" , method = RequestMethod.POST)
+	public String add(@RequestBody User user) {
+		String result = "";
+		if (user == null){
+			result = "参数不可为空";
+		}else{
+			result = user.getName();
+		}
+		return result;
 	}
 
 	@Override

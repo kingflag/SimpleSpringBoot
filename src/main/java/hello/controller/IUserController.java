@@ -1,8 +1,10 @@
 package hello.controller;
 
+import hello.domain.User;
+
 public interface IUserController {
 
-	public String add();
+	public String add(User user);
 
 	public String queryall();
 
