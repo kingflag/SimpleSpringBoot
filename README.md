@@ -90,12 +90,6 @@ http://localhost:8081/user/add
 ```
 可以在浏览器中看到```参数不可为空```或者```name的值```字符串
 
-在浏览器中输入<code>http://localhost:8081/user/queryall</code>
-当看到类似于
-```
-queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
-```
-此时证明Mybatis集成成功，可以对数据库进行操作。
 
 在浏览器中输入```http://localhost:8081/user/addsome```在页面看到```true```然后在数据库中查看，可以发现已经增加了数据，证明JPA集成成功
 
@@ -128,3 +122,5 @@ queryall:[User [id=1, name=king, age=12], User [id=2, name=flag, age=45]]
 }
 ```
 其中state为200表示请求成功，其他为失败，data是返回的数据；
+
+此时证明Mybatis集成成功，可以对数据库进行操作。
