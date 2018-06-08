@@ -57,7 +57,7 @@ public class ElasticSearchControllerImpl{
         try {
             result = new LinkedList<>();
             //搜索关键字
-            String queryString="integrete";
+            String queryString="springboot";
             QueryStringQueryBuilder builder=new QueryStringQueryBuilder(queryString);
             Iterable<Article> searchResult = articleSearchRepository.search(builder);
             Iterator<Article> iterator = searchResult.iterator();
