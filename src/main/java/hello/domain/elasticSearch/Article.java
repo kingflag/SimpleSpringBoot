@@ -1,11 +1,16 @@
 package hello.domain.elasticSearch;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+
 import java.io.Serializable;
 import java.util.Date;
+
+
 
 /**
  * Created by admin on 2018/6/7.
  */
+@Document(indexName="projectname",type="article",indexStoreType="fs",shards=5,replicas=1,refreshInterval="-1")
 public class Article implements Serializable {
     private Long id;
     /**标题*/
