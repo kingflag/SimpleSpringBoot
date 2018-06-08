@@ -124,3 +124,6 @@ http://localhost:8081/user/add
 其中state为200表示请求成功，其他为失败，data是返回的数据；
 
 此时证明Mybatis集成成功，可以对数据库进行操作。
+
+
+# SpringBoot 集成 Elasticsearch 程序 即将合并到 master 分支
