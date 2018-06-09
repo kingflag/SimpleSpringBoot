@@ -28,8 +28,8 @@ public class ElasticSearchControllerImpl{
     public boolean saveArticleIndex(){
         Author author=new Author();
         author.setId(1L);
-        author.setName("tianshouzhi");
-        author.setRemark("java developer");
+        author.setName("kingflag");
+        author.setRemark("java 开发");
 
         Tutorial tutorial=new Tutorial();
         tutorial.setId(1L);
