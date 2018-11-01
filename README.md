@@ -127,3 +127,77 @@ http://localhost:8081/user/add
 
 
 # SpringBoot 集成 Elasticsearch 程序 即将合并到 master 分支
+
+springBoot 使用的是1.5.9 版本，其他版本可能会有问题。
+
+####elasticsearch-head安装及启动
+head是用于监控Elasticsearch状态的客户端插件，包括数据可视化，增删改查工具，es语句的可视化等等。
+
+5.0之后的安装方式如下：
+```shell
+git clone git://github.com/mobz/elasticsearch-head.git
+ 
+cd elasticsearch-head 
+npm install
+npm install -g grunt-cli
+yum install nodejs
+grunt server &
+Open http://localhost:9100 
+```
+注：1.head插件监听的是9100端口 2.安装前要完成nodejs, grunt的安装
+
+启动方式：
+
+使用npm方式启动，在head插件目录中执行
+```shell
+grunt server  &
+```
+
+先启动Elasticsearch,注意日志和数据的存放目录，在配置文件中要写正确
+Elasticsearch启动后在浏览器中输入
+```http://127.0.0.1:9200/```
+可以看到类似如下信息
+```$xslt
+{
+"name": "cZgwsjC",
+"cluster_name": "elasticsearch",
+"cluster_uuid": "yKBnnem0SQal4yS3Ws386g",
+"version": {
+    "number": "6.2.4",
+    "build_hash": "ccec39f",
+    "build_date": "2018-04-12T20:37:28.497551Z",
+    "build_snapshot": false,
+    "lucene_version": "7.2.1",
+    "minimum_wire_compatibility_version": "5.6.0",
+    "minimum_index_compatibility_version": "5.0.0"
+},
+"tagline": "You Know, for Search"
+}
+```
+证明ES启动正常
+下面可以启动服务
+启动后在浏览器输入:```http://localhost:8081/elasticSearch/saveArticleIndex```返回 true
+
+然后在浏览器输入 ```http://localhost:8081/elasticSearch/searchArticleIndex```
+可以看到如下数据
+```json
+[
+    {
+        "id": 1,
+        "title": "springboot integreate elasticsearch",
+        "abstracts": "springboot integreate elasticsearch is very easy",
+        "content": "elasticsearch based on lucene,spring-data-elastichsearch based on elaticsearch,this tutorial tell you how to integrete springboot with spring-data-elasticsearch",
+        "postTime": 1541053864818,
+        "clickCount": 1,
+        "author": {
+            "id": 1,
+            "name": "kingflag",
+            "remark": "java 开发"
+        },
+        "tutorial": {
+            "id": 1,
+            "name": "elastic search"
+        }
+    }
+]
+```
