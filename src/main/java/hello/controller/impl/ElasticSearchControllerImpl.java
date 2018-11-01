@@ -25,7 +25,7 @@ public class ElasticSearchControllerImpl {
     private ArticleSearchRepository articleSearchRepository;
 
     @RequestMapping("addArticle")
-    public boolean saveArticleIndex() {
+    public boolean addArticle() {
         Author author = new Author();
         author.setId(1L);
         author.setName("kingflag");
@@ -52,7 +52,7 @@ public class ElasticSearchControllerImpl {
     }
 
     @RequestMapping("searchArticle")
-    public List<Article> testSearch() {
+    public List<Article> searchArticle() {
         List result = null;
         try {
             result = new LinkedList<>();
