@@ -19,23 +19,23 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/elasticSearch")
-public class ElasticSearchControllerImpl{
+public class ElasticSearchControllerImpl {
 
     @Autowired
     private ArticleSearchRepository articleSearchRepository;
 
-    @RequestMapping("saveArticleIndex")
-    public boolean saveArticleIndex(){
-        Author author=new Author();
+    @RequestMapping("addArticle")
+    public boolean saveArticleIndex() {
+        Author author = new Author();
         author.setId(1L);
         author.setName("kingflag");
         author.setRemark("java 开发");
 
-        Tutorial tutorial=new Tutorial();
+        Tutorial tutorial = new Tutorial();
         tutorial.setId(1L);
         tutorial.setName("elastic search");
 
-        Article article =new Article();
+        Article article = new Article();
         article.setId(1L);
         article.setTitle("springboot integreate elasticsearch");
         article.setAbstracts("springboot integreate elasticsearch is very easy");
@@ -51,26 +51,37 @@ public class ElasticSearchControllerImpl{
         return true;
     }
 
-    @RequestMapping("searchArticleIndex")
-    public List<Article> testSearch(){
+    @RequestMapping("searchArticle")
+    public List<Article> testSearch() {
         List result = null;
         try {
             result = new LinkedList<>();
             //搜索关键字
-            String queryString="springboot";
-            QueryStringQueryBuilder builder=new QueryStringQueryBuilder(queryString);
+            String queryString = "springboot";
+            QueryStringQueryBuilder builder = new QueryStringQueryBuilder(queryString);
             Iterable<Article> searchResult = articleSearchRepository.search(builder);
             Iterator<Article> iterator = searchResult.iterator();
-            while(iterator.hasNext()){
+            while (iterator.hasNext()) {
                 Article article = iterator.next();
                 System.out.println(article);
                 result.add(article);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return result;
         }
 
         return result;
+    }
+
+    @RequestMapping("deleteArticle")
+    public boolean deleteArticle() {
+
+        try {
+            articleSearchRepository.delete(1L);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

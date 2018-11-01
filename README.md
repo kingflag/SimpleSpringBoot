@@ -176,9 +176,9 @@ Elasticsearch启动后在浏览器中输入
 ```
 证明ES启动正常
 下面可以启动服务
-启动后在浏览器输入:```http://127.0.0.1:8081/elasticSearch/saveArticleIndex```返回 true
+启动后在浏览器输入:```http://127.0.0.1:8081/elasticSearch/addArticle```返回 true,插入数据
 
-然后在浏览器输入 ```http://127.0.0.1:8081/elasticSearch/searchArticleIndex```
+然后在浏览器输入 ```http://127.0.0.1:8081/elasticSearch/searchArticle``` 查看数据
 可以看到如下数据
 ```json
 [
@@ -201,3 +201,5 @@ Elasticsearch启动后在浏览器中输入
     }
 ]
 ```
+
+在浏览器输入:```http://127.0.0.1:8081/elasticSearch/deleteArticle```返回 true,删除数据
