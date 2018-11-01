@@ -203,3 +203,7 @@ Elasticsearch启动后在浏览器中输入
 ```
 
 在浏览器输入:```http://127.0.0.1:8081/elasticSearch/deleteArticle```返回 true,删除数据
+
+#集成kafka,
+配置过程见另一个demo，[地址](https://github.com/kingflag/SpringBoot-Kafka) windows 与linux配置类似，亲测可用
+
