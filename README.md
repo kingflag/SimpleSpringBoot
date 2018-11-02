@@ -207,3 +207,4 @@ Elasticsearch启动后在浏览器中输入
 #集成kafka,
 配置过程见另一个demo，[地址](https://github.com/kingflag/SpringBoot-Kafka) windows 与linux配置类似，亲测可用
 
+KafkaTask定时生成数据，将数据发送到kafka，kafka消费者接收到数据后将数据报错到ES中
