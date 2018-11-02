@@ -128,7 +128,7 @@ http://localhost:8081/user/add
 
 # SpringBoot 集成 Elasticsearch 程序 即将合并到 master 分支
 
-springBoot 使用的是1.5.9 版本，其他版本可能会有问题。
+springBoot 使用的是 <font color=#DC143C>2.1.0.RELEASE</font>   版本，其他版本可能会有问题。
 
 ####elasticsearch-head安装及启动
 head是用于监控Elasticsearch状态的客户端插件，包括数据可视化，增删改查工具，es语句的可视化等等。
