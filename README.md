@@ -129,7 +129,7 @@ http://localhost:8081/user/add
 # SpringBoot 集成 Elasticsearch 程序 即将合并到 master 分支
 
 springBoot 使用的是 <font color=#DC143C>2.1.0.RELEASE</font>   版本，其他版本可能会有问题。
-
+需要注意的是spring boot 1.x就算当前最新的1.5.11支持的elasticsearch版本仅为2.x。如果需要spring boot支持5.x版本的elasticsearch或者6.x版本的elasticsearch则需要将spring boot版本升级到最新的2.1.0即可。本教程所使用的elasticsearch版本为6.2。所以使用的spring boot版本是2.1.0。
 ####elasticsearch-head安装及启动
 
 head是用于监控Elasticsearch状态的客户端插件，包括数据可视化，增删改查工具，es语句的可视化等等。
