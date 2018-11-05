@@ -153,7 +153,11 @@ Open http://localhost:9100
 ```shell
 grunt server  &
 ```
-
+在Elasticsearch的config下elasticsearch.yml中修改配置文件，保证head插件能连上Elasticsearch
+```
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+```
 先启动Elasticsearch,注意日志和数据的存放目录，在配置文件中要写正确
 Elasticsearch启动后在浏览器中输入
 ```http://127.0.0.1:9200/```
